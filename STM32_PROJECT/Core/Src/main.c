@@ -92,8 +92,8 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 1);
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, 0);
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 0);
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, 1);
   int count = 0;
 
   while (1)
