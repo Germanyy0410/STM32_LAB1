@@ -92,9 +92,11 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   int count = 0;
+  int startSimulation = 0;
   while (1)
   {
-		if (count == 0) {
+		if (count == 0 && startSimulation == 0) {
+      startSimulation = 1;
 			HAL_GPIO_TogglePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin);
 			HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin);
 		}
@@ -109,8 +111,7 @@ int main(void)
 		if (count == 10) {
 			HAL_GPIO_TogglePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin);
 			HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
-			count = 1;
-			HAL_Delay(1000);
+			count = 0;
 		}
 
 		HAL_Delay(1000);
