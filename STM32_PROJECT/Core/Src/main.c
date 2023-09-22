@@ -92,6 +92,7 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   int count = 0;
+  int startSimulation = 0;
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, 1);
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, 1);
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, 1);
@@ -100,7 +101,8 @@ int main(void)
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 1);
   while (1)
   {
-	  if (count == 0) {
+	  if (count == 0 && startSimulation == 0) {
+          startSimulation = 1;
 	  		  // (1) RED on
 	  		  HAL_GPIO_TogglePin(LED_YELLOW_1_GPIO_Port , LED_YELLOW_1_Pin);
 	  		  HAL_GPIO_TogglePin(LED_GREEN_1_GPIO_Port , LED_GREEN_1_Pin);
@@ -142,8 +144,7 @@ int main(void)
 	  		  HAL_GPIO_TogglePin(LED_GREEN_2_GPIO_Port , LED_GREEN_2_Pin);
 
 	  		  // Reset State
-	  		  count = 1;
-	  		  HAL_Delay(1000);
+	  		  count = 0;
 	  	  }
 
 	  	  count++;
