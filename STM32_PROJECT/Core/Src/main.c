@@ -93,12 +93,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   int count = 0;
   int startSimulation = 0;
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, 1);
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, 1);
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, 1);
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_3, 1);
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, 1);
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 1);
+
   while (1)
   {
 	  if (count == 0 && startSimulation == 0) {
@@ -202,7 +197,7 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, LED_RED_1_Pin|LED_YELLOW_1_Pin|LED_GREEN_1_Pin|LED_RED_2_Pin
-                          |LED_YELLOW_2_Pin|LED_GREEN_2_Pin, GPIO_PIN_RESET);
+                          |LED_YELLOW_2_Pin|LED_GREEN_2_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pins : LED_RED_1_Pin LED_YELLOW_1_Pin LED_GREEN_1_Pin LED_RED_2_Pin
                            LED_YELLOW_2_Pin LED_GREEN_2_Pin */
