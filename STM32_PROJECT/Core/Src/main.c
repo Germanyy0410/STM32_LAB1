@@ -63,16 +63,16 @@ static void MX_GPIO_Init(void);
   */
 
 void display7SEG(int num){
-	if(num == 0) GPIOB->ODR = 0x01;
-	if(num == 1) GPIOB->ODR = 0x4F;
-	if(num == 2) GPIOB->ODR = 0x12;
-	if(num == 3) GPIOB->ODR = 0x06;
-	if(num == 4) GPIOB->ODR = 0x4C;
-	if(num == 5) GPIOB->ODR = 0x24;
-	if(num == 6) GPIOB->ODR = 0x20;
-	if(num == 7) GPIOB->ODR = 0x0F;
-	if(num == 8) GPIOB->ODR = 0x00;
-	if(num == 9) GPIOB->ODR = 0x04;
+	if(num == 0) GPIOB->ODR = 0x0001;
+	if(num == 1) GPIOB->ODR = 0x004F;
+	if(num == 2) GPIOB->ODR = 0x0012;
+	if(num == 3) GPIOB->ODR = 0x0006;
+	if(num == 4) GPIOB->ODR = 0x004C;
+	if(num == 5) GPIOB->ODR = 0x0024;
+	if(num == 6) GPIOB->ODR = 0x0020;
+	if(num == 7) GPIOB->ODR = 0x000F;
+	if(num == 8) GPIOB->ODR = 0x0000;
+	if(num == 9) GPIOB->ODR = 0x0004;
 }
 
 int main(void)
@@ -108,12 +108,6 @@ int main(void)
   int counter = 0;
 
   int count = 0;
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, 1);
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, 1);
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, 1);
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_3, 1);
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, 1);
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 1);
 
   while (1)
   {
@@ -223,7 +217,7 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, LED_RED_1_Pin|LED_YELLOW_1_Pin|LED_GREEN_1_Pin|LED_RED_2_Pin
-                          |LED_YELLOW_2_Pin|LED_GREEN_2_Pin, GPIO_PIN_RESET);
+                          |LED_YELLOW_2_Pin|LED_GREEN_2_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3
