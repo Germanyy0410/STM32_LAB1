@@ -64,29 +64,10 @@ static void MX_GPIO_Init(void);
 
 int led_pins[] = {LED_0_Pin, LED_1_Pin, LED_2_Pin, LED_3_Pin, LED_4_Pin, LED_5_Pin, LED_6_Pin, LED_7_Pin, LED_8_Pin, LED_9_Pin, LED_10_Pin, LED_11_Pin};
 
-void clearAllClock() {
-	HAL_GPIO_WritePin(GPIOA, LED_0_Pin | LED_1_Pin | LED_2_Pin | LED_3_Pin | LED_4_Pin | LED_5_Pin | LED_6_Pin | LED_7_Pin | LED_8_Pin | LED_9_Pin | LED_10_Pin | LED_11_Pin, 1);
-}
-
 void setNumberOnClock(int num){
     if (num >= 0 && num <= 11) {
         HAL_GPIO_WritePin(GPIOA, led_pins[num], 0);
     }
-}
-
-void clearNumberOnClock(int num){
-	if (num >= 0 && num <= 11) {
-		HAL_GPIO_WritePin(GPIOA, led_pins[num], 1);
-	}
-}
-
-void displayNumberOnClock(int hr, int min, int sec) {
-  if (sec % 5 == 0) {
-    clearAllClock();
-    setNumberOnClock(hr);
-    setNumberOnClock(min / 5);
-    setNumberOnClock(sec / 5);
-  }
 }
 
 int main(void)
@@ -119,29 +100,10 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  int hr = 10, min = 40, sec = 0;
-  clearAllClock();
 
   while (1)
   {
-    displayNumberOnClock(hr, min, sec);
-    sec++;
 
-    if (sec >= 60) {
-      sec = 0;
-      min++;
-    }
-
-    if (min >= 60) {
-      min = 0;
-      hr++;
-    }
-
-    if (hr >= 12) {
-      hr = 0;
-    }
-
-    HAL_Delay(10);
   }
   /* USER CODE END 3 */
 }
