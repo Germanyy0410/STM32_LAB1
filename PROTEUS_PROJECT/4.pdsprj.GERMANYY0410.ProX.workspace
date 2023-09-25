@@ -301,7 +301,7 @@
      <ITEM name="TopLineAddress">40002C00</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="16" x="640" flags="0000000a" y="813" h="32" pid="490" iid="1">
+   <POPUP w="16" x="640" flags="0000000a" y="813" h="204522251" pid="490" iid="1">
     <PROPERTIES>
      <ITEM name="DataType">2</ITEM>
      <ITEM name="DispChars">Yes</ITEM>
